@@ -1897,7 +1897,7 @@ $(INTERNAL_OTA_PACKAGE_TARGET): $(BUILT_TARGET_FILES_PACKAGE) $(DISTTOOLS)
 
 TARGET_PACKAGE := $(PRODUCT_OUT)/GPE-Remixed-$(PLATFORM_VERSION)-$(shell date +%Y%m%d)-$(TARGET_DEVICE)-$(USER).zip
 
-.PHONY: otapackage bacon gpe bootzip
+.PHONY: otapackage bacon aosprro bootzip
 otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
 bacon: otapackage
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(TARGET_PACKAGE)
@@ -1907,7 +1907,7 @@ bacon: otapackage
 	@echo -e ${CL_BLD}${CL_YLW}"MD5: "${CL_YLW}" `cat $(TARGET_PACKAGE).md5sum | awk '{print $$1}' `"${CL_RST}
 	@echo -e ${CL_BLD}${CL_YLW}"Size:"${CL_YLW}" `du -sh $(TARGET_PACKAGE) | awk '{print $$1}' `"${CL_RST}
 	@echo -e ${CL_BLD}${CL_CYN}"================================================================================"${CL_RST}
-gpe: bacon
+aosprro: bacon
 
 bootzip: bootimage
 	$(BOOT_ZIP_FROM_IMAGE_SCRIPT) \
