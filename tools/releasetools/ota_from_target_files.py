@@ -612,17 +612,7 @@ reboot_now("%(bcb_dev)s", "recovery");
 else if get_stage("%(bcb_dev)s") == "3/3" then
 """ % bcb_dev)
 
-# Custom updater-script
-
-  script.Print("============================================")
-  script.Print("                 Welcome to")
-  script.Print("        Google Play Edition Remixed")
-  device = GetBuildProp("ro.product.name", OPTIONS.info_dict)
-  script.Print("      Device: %s (%s)"%(device))
-  script.Print("============================================")
-
-# Dump fingerprints
-
+  # Dump fingerprints
   script.Print("Target: %s" % CalculateFingerprint(
       oem_props, oem_dict, OPTIONS.info_dict))
 
