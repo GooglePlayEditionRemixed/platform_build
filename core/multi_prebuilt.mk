@@ -134,7 +134,7 @@ prebuilt_is_host :=
 prebuilt_module_tags :=
 
 # for Exynos5 Platform semi-hack
-ifneq ($(LOCAL_MODULE)$(LOCAL_MODULE_CLASS),)
-	$(error $(LOCAL_PATH): LOCAL_MODULE or LOCAL_MODULE_CLASS not needed by \
-	BUILD_MULTI_PREBUILT, use BUILD_PREBUILT instead!)
-endif
+##ifneq ($(LOCAL_MODULE)$(LOCAL_MODULE_CLASS),)
+#	$(error $(LOCAL_PATH): LOCAL_MODULE or LOCAL_MODULE_CLASS not needed by \
+#	BUILD_MULTI_PREBUILT, use BUILD_PREBUILT instead!)
+#endif
