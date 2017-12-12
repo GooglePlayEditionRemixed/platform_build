@@ -83,6 +83,14 @@ endef
 
 endif # multi_prebuilt_once
 
+# for Exynos5 Platform semi-hack
+ifeq ($(TARGET_BOARD_PLATFORM),exynos5)
+  #ifneq ($(LOCAL_MODULE)$(LOCAL_MODULE_CLASS),)
+		 $(error $(LOCAL_PATH): LOCAL_MODULE or LOCAL_MODULE_CLASS not needed by \
+		 BUILD_MULTI_PREBUILT, use BUILD_PREBUILT instead!)
+  endif
+endif
+
 
 $(call auto-prebuilt-boilerplate, \
     $(prebuilt_static_libs), \
