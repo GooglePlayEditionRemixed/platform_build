@@ -83,13 +83,6 @@ endef
 
 endif # multi_prebuilt_once
 
-# for Exynos5 Platform semi-hack
-ifneq ($(LOCAL_MODULE)$(LOCAL_MODULE_CLASS),)
-	$(error $(LOCAL_PATH): LOCAL_MODULE or LOCAL_MODULE_CLASS not needed by \
-	BUILD_MULTI_PREBUILT, use BUILD_PREBUILT instead!)
-endif
-
-
 $(call auto-prebuilt-boilerplate, \
     $(prebuilt_static_libs), \
     $(prebuilt_is_host), \
@@ -139,3 +132,9 @@ prebuilt_java_libraries :=
 prebuilt_static_java_libraries :=
 prebuilt_is_host :=
 prebuilt_module_tags :=
+
+# for Exynos5 Platform semi-hack
+ifneq ($(LOCAL_MODULE)$(LOCAL_MODULE_CLASS),)
+	$(error $(LOCAL_PATH): LOCAL_MODULE or LOCAL_MODULE_CLASS not needed by \
+	BUILD_MULTI_PREBUILT, use BUILD_PREBUILT instead!)
+endif
